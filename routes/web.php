@@ -20,3 +20,5 @@ Route::get('/', 'App\Http\Controllers\TodoListController@index');
 Route::get('create', 'App\Http\Controllers\TodoListController@create');
 
 Route::get('save_new_list', 'App\Http\Controllers\TodoListController@store');
+
+Route::get('delete/{id}', 'App\Http\Controllers\TodoListController@destroy');

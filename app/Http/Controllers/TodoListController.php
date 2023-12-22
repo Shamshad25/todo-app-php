@@ -61,8 +61,9 @@ class TodoListController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(todo_list $todo_list)
+    public function destroy(todo_list $todo_list,$id)
     {
-        //
+        $row = $todo_list::destroy($id);
+        return redirect('/');
     }
 }
