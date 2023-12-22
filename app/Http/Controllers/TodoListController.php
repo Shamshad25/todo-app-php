@@ -45,17 +45,21 @@ class TodoListController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(todo_list $todo_list)
+    public function edit(todo_list $todo_list, $id)
     {
-        //
+        $todo = todo_list::find($id);
+        return view('edit_list')->with('todo_arr',$todo);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, todo_list $todo_list)
+    public function update(Request $request, todo_list $todo_list,$id)
     {
-        //
+        $todo = todo_list::find($id);
+        $todo->name = $request->input('name');
+        $todo->save();
+        return redirect('/');
     }
 
     /**
